@@ -112,9 +112,7 @@
     margin-right: 2rem
     display flex
     align-items center
-    img
-      max-width 4rem
-      max-height 2rem
+    
 
   .main-nav
     height: 100%

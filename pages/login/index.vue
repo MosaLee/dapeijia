@@ -78,7 +78,7 @@
             console.log('what')
             axios.get(`/api/data?username=${username}&&password=${password}`)
               .then(function (res) {
-			  console.lof(res)
+				console.lof(res)
                 /**if (res.data === '1') {
                   window.utils.filter.prototype.customed('', '用户名或密码错误, 请重新输入！', _this)
                 } else {

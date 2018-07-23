@@ -10,7 +10,6 @@
       </h2>
       <div class="links">
         <router-link to="/login"
-          target="_blank"
           class="button--green">登录</router-link>
         <a
           href="###"

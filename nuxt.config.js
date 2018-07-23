@@ -21,7 +21,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-	vender: ['~/plugins/axios.js']
+	vender: ['axios']
     /*
     ** Run ESLint on save
     */

@@ -44,7 +44,8 @@
 
 <script>
   import Headers from '~/components/header.vue'
-  import axios from 'axios'
+  import API from '~/plugins/axios'
+  
   import '~/mock/mock.js'
   
   export default {
@@ -64,60 +65,28 @@
 
         let _this = this
 
-        if (username !== '' && password !== '') {
-          let pan = 0
-          if (username.length < 5) {
-            pan++
-            window.utils.filter.prototype.username(username, '用户名长度不能少于5位', this)
+        API.GET("admin/login",{username: username, password: password, user_type: 'company_admin'}).then(function(res){
+          console.log(res.data);
+          console.log(res.data[0]);
+          if(res.data){
+            console.log(0);
+            _this.$router.push({ path: '/info' })
+            let message = "登录成功！"
+            let obj = {
+              message: message
+            }
+            _this.alertNow.push(obj)
+          }else{
+            let message = "登录失败！"
+            let obj = {
+              message: message
+            }
+            _this.alertNow.push(obj)
           }
-          if (password.length < 6) {
-            pan++
-            window.utils.filter.prototype.password(password, '密码长度不能少于6位', this)
-          }
-          if (pan === 0) {
-            console.log('what')
-            axios.get(`/api/data?username=${username}&&password=${password}`)
-              .then(function (res) {
-				console.lof(res)
-                /**if (res.data === '1') {
-                  window.utils.filter.prototype.customed('', '用户名或密码错误, 请重新输入！', _this)
-                } else {
-                  if (res.data[0]) {
-                    let expireDays = 1000 * 60 * 60 * 24 * 15
-                    _this.$cookie.set('username', username, expireDays)
-                    _this.$cookie.set('password', password, expireDays)
-                    _this.$cookie.set('uid', res.data[0].id, expireDays)
-                    _this.$store.dispatch('logining', res.data[0])
+        })
 
-                    let message = '登陆成功'
-                    let state = 1
-                    let obj = {
-                      message: message
-                    }
-                    _this.alertNow.push(obj)
-                    setTimeout(() => {
-                      _this.alertNow.splice(_this.alertNow.length - 1, 1)
-                    }, 2000)
-                    _this.$store.dispatch('loadLoginState', state)
-                    _this.$store.dispatch('loadUsername', username)
-                    _this.$store.dispatch('loadUserData', res.data[0])
-                    _this.$store.dispatch('loadAvator', 'http://data.maopingshou.com/images/extra/assistance.png')
-                    // console.log('登陆状态：' + _this.$store.state.option.loginState)
-                    _this.$router.push('/')
-                  } else {
-                    let message = '登陆失败,密码错误!'
-                    let obj = {
-                      message: message
-                    }
-                    _this.alertNow.push(obj)
-                  }
-                }
-              **/})
-          }
-        } else {
-          window.utils.filter.prototype.required(username, '用户名不能为空', this)
-          window.utils.filter.prototype.required(password, '密码不能为空', this)
-        }
+
+        
       }
     },
     components: {

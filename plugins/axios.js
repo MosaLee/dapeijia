@@ -6,8 +6,8 @@ const API = {}
 
 function getHeaders () {
   let headersobj = {
-    'X-DP-Key': ENV.KEY || 'hahha',
-    'X-DP-ID': ENV.ID || '222'
+    'X-DP-Key': ENV.KEY || '222',
+    'X-DP-ID': ENV.ID || '111'
   }
   let token = Cookies.get('token-' + process.env.port) || ''
   if (token) {

@@ -10,7 +10,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href : '/css/tabler.css'},
+      { rel: 'stylesheet', href: '/css/dashboard.css'}
     ]
   },
   /*
@@ -34,7 +36,7 @@ module.exports = {
     //    })
     //  }
     //}
-  }
-  
+  },
+  mode: 'spa'
 }
 

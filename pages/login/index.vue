@@ -45,9 +45,8 @@
 <script>
   import Headers from '~/components/header.vue'
   import API from '~/plugins/axios'
-  
-  import '~/mock/mock.js'
-  
+ 
+  let Cookies = require('js-cookie')
   export default {
     data () {
       return {
@@ -67,10 +66,11 @@
 
         API.GET("admin/login",{username: username, password: password, user_type: 'company_admin'}).then(function(res){
           console.log(res.data);
-          console.log(res.data[0]);
           if(res.data){
-            console.log(0);
+            let token = res.data['token']
+            Cookies.set('token-' + process.env.port, token)
             _this.$router.push({ path: '/info' })
+
             let message = "登录成功！"
             let obj = {
               message: message
@@ -84,13 +84,17 @@
             _this.alertNow.push(obj)
           }
         })
-
-
-        
+      },
+      resetToken () {
+        Cookies.set('token-' + process.env.port, '')
       }
     },
     components: {
       Headers
+    },
+    mounted () {
+      let _this = this
+      _this.resetToken()
     }
   }
 </script>

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-  import Headers from '~/components/header.vue'
+  import Headers from '~/components/common/header.vue'
   import API from '~/plugins/axios'
  
   let Cookies = require('js-cookie')
@@ -69,7 +69,7 @@
           if(res.data){
             let token = res.data['token']
             Cookies.set('token-' + process.env.port, token)
-            _this.$router.push({ path: '/info' })
+            _this.$router.push({ path: '/display' })
 
             let message = "登录成功！"
             let obj = {

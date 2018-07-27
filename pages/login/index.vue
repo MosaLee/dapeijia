@@ -69,7 +69,7 @@
           if(res.data){
             let token = res.data['token']
             Cookies.set('token-' + process.env.port, token)
-            _this.$router.push({ path: '/display' })
+            _this.$router.push({ path: '/display/productInfo' })
 
             let message = "登录成功！"
             let obj = {

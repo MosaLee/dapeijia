@@ -209,15 +209,56 @@
                         </div>
     </div>
     <div class="form-inline">
-        <label class="form-label custom-label">Color Checkbox</label>
-        <div class="row gutters-xs">
-
+        <label class="form-label custom-label">Icon input</label>
+        <div class="selectgroup selectgroup-pills">
+                          <label class="selectgroup-item">
+                            <input type="radio" name="icon-input" value="1" class="selectgroup-input" checked="">
+                            <span class="selectgroup-button selectgroup-button-icon"><i class="fe fe-sun"></i></span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="icon-input" value="2" class="selectgroup-input">
+                            <span class="selectgroup-button selectgroup-button-icon"><i class="fe fe-moon"></i></span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="icon-input" value="3" class="selectgroup-input">
+                            <span class="selectgroup-button selectgroup-button-icon"><i class="fe fe-cloud-rain"></i></span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="icon-input" value="4" class="selectgroup-input">
+                            <span class="selectgroup-button selectgroup-button-icon"><i class="fe fe-cloud"></i></span>
+                          </label>
+                        </div>
+    </div>
+    <div class="form-inline">
+        <label class="form-label custom-label"></label>
+        <div class="form-group">
+            <label class="form-label">Full name<span class="form-required">*</span></label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Company<span class="form-required">*</span></label>
+            <input type="text" class="form-control" />
         </div>
     </div>
     <div class="form-inline">
-        <label class="form-label custom-label">Color Checkbox</label>
-        <div class="row gutters-xs">
-
+        <label class="form-label custom-label">Buttons</label>
+        <div class="form-group">
+            <a href="#" class="btn btn-primary form-control" role="button">Link</a>
+            <button class="btn btn-primary form-control">Button</button>
+            <input type="button" class="btn btn-primary form-control" value="Input" />
+            <input type="submit" class="btn btn-primary form-control" value="Submit" />
+            <input type="reset" class="btn btn-primary form-control" value="Reset" />
+        </div>
+    </div>
+    <div class="form-inline">
+        <label class="form-label custom-label">Disabled Buttons</label>
+        <div class="form-group">
+            <a href="#" class="btn btn-primary disabled form-control">Primary</a>
+            <a href="#" class="btn btn-secondary disabled form-control">Secondary</a>
+            <a href="#" class="btn btn-success disabled form-control">Success</a>
+            <a href="#" class="btn btn-info disabled form-control">Info</a>
+            <a href="#" class="btn btn-warning disabled form-control">Warning</a>
+            <a href="#" class="btn btn-danger disabled form-control">Danger</a>
         </div>
     </div>
 
@@ -230,11 +271,35 @@
 
 <style>
 .form-inline {margin:1em;}
-.custom-label {margin-right:1em;}
-.custom-control-inline {
-    display: -ms-inline-flexbox;
-    display: inline-flex; 
+.custom-label, .form-label, .form-control {margin-right:1em;}
+.form-group .custom-control-inline {
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important; 
     margin-right: 1rem;
+}
+/*invalid feedback错位解决方案 无效 */
+@media (min-width: 576px) {
+    .was-validated .form-control:invalid ~ .invalid-feedback,
+    .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
+    .form-control.is-invalid ~ .invalid-tooltip, .was-validated
+    .custom-select:invalid ~ .invalid-feedback,
+    .was-validated
+    .custom-select:invalid ~ .invalid-tooltip,
+    .custom-select.is-invalid ~ .invalid-feedback,
+    .custom-select.is-invalid ~ .invalid-tooltip {
+        display: inline-block;
+        float:right;
+    }
+    .was-validated .form-check-input:invalid ~ .invalid-feedback,
+    .was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,
+    .form-check-input.is-invalid ~ .invalid-tooltip {
+        display: inline-block;
+    }
+    .was-validated .custom-file-input:invalid ~ .invalid-feedback,
+    .was-validated .custom-file-input:invalid ~ .invalid-tooltip, .custom-file-input.is-invalid ~ .invalid-feedback,
+    .custom-file-input.is-invalid ~ .invalid-tooltip {
+        display: inline-block;
+    }
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
+      <Sliders></Sliders>
       <h1 class="title">
         搭配家
       </h1>
@@ -21,11 +21,13 @@
 
 <script>
 //import Headers from '~/components/header.vue'
-import AppLogo from '~/components/AppLogo.vue'
+//import AppLogo from '~/components/AppLogo.vue'
+import Sliders from '~/components/common/slider.vue'
 
 export default {
   components: {
-    AppLogo
+    //AppLogo
+    Sliders
   }
 }
 </script>

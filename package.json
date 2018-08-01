@@ -17,6 +17,7 @@
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0",
     "nuxt": "^1.0.0",
+    "swiper": "^4.3.5",
     "tabler": "^1.0.0",
     "twbs-pagination": "^1.4.1"
   },
